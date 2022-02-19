@@ -1,0 +1,62 @@
+\documentclass{article}
+
+% these packages let you do math
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% we need these packages for fancy R tables
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{xcolor}
+
+% these packages play with the spacing/margins of the document. Uncomment the commands on lines 16 and 17 to see what they do.
+\usepackage{a4wide}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{parskip}
+%\doublespacing
+%\geometry{margin=1.5in}
+
+% this package helps us with including images. Setting the graphics path makes it easier to refer to things in the \includegraphics command.
+\usepackage{graphicx}
+\graphicspath{ {/Users/yf/causal-inference-hidden-class/figures} }
+
+% make some hyperlinks using the \href command
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue
+}
+
+% set the author, title, and date of the document. \maketitle adds it to the document.
+\author{Yuxin Feng}
+\title{Hidden Class HW1 Report}
+\date{Spring 2022}
+
+\begin{document}
+\maketitle
+
+\section{Data Collection}
+
+According to the NLSY97 data, I collected the information and filtered unimportant data. By grouping race and gender, we get a clean version of NLSY97 data for more analysis.
+
+\section{Figure}
+Figure \ref{fig:graph} tells us the mean number of incarcerations happened in 2002 according to Race and Gender. We know that the number of woman and man has great difference. Usually numbers of woman are smaller than man. (We have some lack data in man - Mixed Races.) In addition, when paying attention to races, black man has larger numbers than any other races.
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=.75\textwidth]{ggplot}
+    \end{center}
+    \caption{Mean Number of incarcerations in 2002 by Race and Gender}
+    \label{fig:graph}
+\end{figure}
+
+\section{Table}
+We can have a better view of the exact probabilities of incarcerations from the table. It has the same qualitative result as the picture we saw above.
+\input{incarcerations_by_racegender.tex}
+The second table gives us a result of the regression between black women and other variables. The result tells us that the correlation between black women and black men is positive, while the others are positive. Also, the regression has a very small R square, which means that it may not be a good fit for the data.
+\input{regress_incarcerations_by_racegender.tex}
+
+\end{document}
